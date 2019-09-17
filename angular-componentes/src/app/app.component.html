@@ -1,9 +1,18 @@
-<!--
-  <button mat-fab >
-     hola
-</button>
--->
-<!--Select-->
+
+
+<label id="example-radio-group-label">que carro prefiere </label>
+<br>
+<br>
+<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
+  <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+    {{season}}
+  </mat-radio-button>
+</mat-radio-group>
+<br>
+<div>el carro es:
+  {{favoriteSeason}}</div>
+<br>
+
 <mat-form-field>
   <mat-label>Selecciona una comida</mat-label>
   <mat-select [(value)]="selected">
@@ -17,27 +26,6 @@
 <p>Tu seleccion es: {{selected}}</p>
 <hr>
 <br>
-<!--Radio button-->
-<label id="example-radio-group-label">Elejir tu color favorito</label>
-<br>
-<br>
-<mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
-  <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
-    {{season}}
-  </mat-radio-button>
-</mat-radio-group>
-<br>
-<div>Tu color favorito es:
-  {{favoriteSeason}}</div>
-<br>
-<hr>
-<br>
-
-<div>De 1-100 que tanto te gusta el sitio Web</div>
-<mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="100"></mat-slider>
-<br>
-<hr>
-<!--input-->
 <mat-form-field>
   <mat-label>Font size</mat-label>
   <mat-select #fontSize value="16px" (selectionChange)="triggerResize()">
@@ -56,8 +44,36 @@
     cdkAutosizeMaxRows="5"></textarea>
 </mat-form-field>
 <br>
-<hr>
-<!--Form field-->
+<br>
+<mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="su dia favorito">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <br>
+  <mat-checkbox>10-20</mat-checkbox>
+  <mat-checkbox>21-30</mat-checkbox>
+  <mat-checkbox>30 o mas</mat-checkbox>
+  <br>
+  <hr>
+  <br>
+<!--Autocomplete-->
+<br>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" placeholder="estado civil" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of options" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+<br>
+<br>
+<mat-slide-toggle>estas trabajando?</mat-slide-toggle>
+
 <br>
 <div class="example-container">
   <mat-form-field>
@@ -75,39 +91,8 @@
   </mat-form-field>
 </div>
 <br>
-<!--Datepicker-->
-<hr>
 <br>
-<mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-  <br>
-  <hr>
-  <!--checkbox-->
-  <br>
-  <mat-checkbox>Mujer</mat-checkbox>
-  <mat-checkbox>Hombre</mat-checkbox>
-  <mat-checkbox>Indefinido</mat-checkbox>
-  <br>
-  <hr>
-  <br>
-<!--Autocomplete-->
-<br>
-<form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input type="text" placeholder="Formacion academica" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of options" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-  </form>
-<br>
-<hr>
-<br>
-<mat-slide-toggle>Estas Feliz :)</mat-slide-toggle>
 
-  
+<div>cuantos seguidores tienes en instagram</div>
+<mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="100"></mat-slider>
+<br>

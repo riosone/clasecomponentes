@@ -12,10 +12,10 @@ export class AppComponent {
   selected = 'option3';
   favoriteSeason: string;
   seasons: string[] = [
-    'Azul',
-    'Gris',
-    'Morado',
-    'Verde'];
+    'jetta gli',
+    'leon cupra',
+    'amg gtr',
+    'bora gli'];
   formatLabel(value: number | null) {
     if (!value) {
       return 0;
@@ -29,7 +29,7 @@ export class AppComponent {
     return value;
   }
   myControl = new FormControl();
-      options: string[] = ['Pregrado', 'Potsgrado', 'Especializacion'];
+      options: string[] = ['soltero', 'casado', 'union libre'];
   constructor(private _ngZone: NgZone) { }
 
   @ViewChild('autosize', { static: false }) autosize: CdkTextareaAutosize;
